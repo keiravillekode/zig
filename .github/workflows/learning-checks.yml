@@ -1,0 +1,21 @@
+name: learning-checks
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  learning-checks:
+    name: Check the syllabus is consistent
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      # Ordering, the one-concept-per-exercise rule, and the task_id
+      # annotations that let the test runner report per-task results.
+      - name: Run bin/prereq-check
+        run: bin/prereq-check
+
+      # Each exercise's .docs/introduction.md must stay byte-identical to its
+      # concept's introduction.md.
+      - name: Run bin/sync-introductions --check
+        run: bin/sync-introductions --check

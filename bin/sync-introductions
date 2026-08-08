@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Copy each concept's `introduction.md` over the corresponding Concept
+# Exercise's `.docs/introduction.md`, so the two are byte-identical.
+#
+# On this track a Concept Exercise teaches exactly one concept, and the
+# introduction a student reads when starting the exercise is the same
+# document as the one shown on the concept's page. Keeping them identical is
+# the point: there is one place to edit, and no chance of the two drifting.
+#
+# Usage:
+#   bin/sync-introductions            # write the copies
+#   bin/sync-introductions --check    # exit 1 if any copy is out of date
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from track import Track  # noqa: E402
+
+
+def main() -> int:
+    check = "--check" in sys.argv[1:]
+    track = Track()
+    stale = []
+    written = 0
+
+    for exercise in track.concept_exercises:
+        source = track.root / "concepts" / exercise.concept / "introduction.md"
+        target = track.root / "exercises" / "concept" / exercise.slug / ".docs" / "introduction.md"
+
+        if not source.exists():
+            print(f"error: {source.relative_to(track.root)} does not exist", file=sys.stderr)
+            return 1
+
+        wanted = source.read_text(encoding="utf-8")
+        current = target.read_text(encoding="utf-8") if target.exists() else None
+        if current == wanted:
+            continue
+
+        if check:
+            stale.append((exercise.slug, exercise.concept))
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(wanted, encoding="utf-8")
+            written += 1
+
+    if check:
+        if stale:
+            for slug, concept in stale:
+                print(
+                    f"exercises/concept/{slug}/.docs/introduction.md differs from "
+                    f"concepts/{concept}/introduction.md",
+                    file=sys.stderr,
+                )
+            print("\nRun `bin/sync-introductions` and commit the result.", file=sys.stderr)
+            return 1
+        print(f"Introductions are in sync ({len(track.concept_exercises)} exercises)")
+        return 0
+
+    print(f"Synced {written} introduction(s) across {len(track.concept_exercises)} exercises")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

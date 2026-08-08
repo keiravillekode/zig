@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Run static consistency checks on config.json and the syllabus tree that go
+# beyond what `bin/configlet lint` covers:
+#
+#   1. Every Concept Exercise teaches exactly one concept.
+#   2. Every Concept Exercise's prerequisite is taught by an exercise at an
+#      earlier position in `exercises.concept[]`, so the syllabus can be
+#      worked through in the order it is listed.
+#   3. The top-level `concepts[]` order agrees with the order the concepts
+#      are taught in `exercises.concept[]`.
+#   4. Every concept slug referenced anywhere exists in `concepts[]`.
+#   5. Every concept is taught by exactly one Concept Exercise.
+#   6. UUIDs are unique across all concepts and exercises.
+#   7. Every Concept Exercise has a `.meta/design.md`.
+#   8. The `// task_id = N` annotations in a Concept Exercise's test file
+#      match the `## N.` task headings in its instructions.md, one to one.
+#
+# Exits 0 if everything is clean, 1 otherwise.
+#
+# Usage: bin/prereq-check
+
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from track import Track  # noqa: E402
+
+TASK_HEADING = re.compile(r"^## (\d+)\.", re.MULTILINE)
+TASK_ANNOTATION = re.compile(r"^//\s*task_id\s*=\s*(\d+)\s*$", re.MULTILINE)
+
+
+def check_one_concept_each(track, errors):
+    for exercise in track.concept_exercises:
+        if len(exercise.concepts) != 1:
+            errors.append(
+                f"{exercise.slug} teaches {len(exercise.concepts)} concepts; this track "
+                f"requires exactly one, because .docs/introduction.md is a verbatim copy "
+                f"of the concept's introduction.md"
+            )
+
+
+def check_prerequisite_order(track, errors):
+    taught_at = track.concept_taught_at
+    for exercise in track.concept_exercises:
+        for prerequisite in exercise.prerequisites:
+            if prerequisite not in taught_at:
+                errors.append(
+                    f"{exercise.slug} (position {exercise.index}) requires concept "
+                    f"{prerequisite!r}, which no Concept Exercise teaches"
+                )
+            elif taught_at[prerequisite] >= exercise.index:
+                errors.append(
+                    f"{exercise.slug} (position {exercise.index}) requires "
+                    f"{prerequisite!r}, taught at position {taught_at[prerequisite]}; "
+                    f"a prerequisite must be taught earlier"
+                )
+
+
+def check_concept_order(track, errors):
+    taught_at = track.concept_taught_at
+    exercise_order = [e.concepts[0] for e in track.concept_exercises if e.concepts]
+    top_level_order = [c for c in track.concept_slugs if c in taught_at]
+    if exercise_order != top_level_order:
+        errors.append(
+            "concepts[] and exercises.concept[] disagree on the order of taught concepts:\n"
+            f"  exercises.concept[]: {exercise_order}\n"
+            f"  concepts[]:          {top_level_order}"
+        )
+
+
+def check_concepts_exist(track, errors):
+    known = set(track.concept_slugs)
+    for exercise in track.concept_exercises:
+        for concept in exercise.concepts + exercise.prerequisites:
+            if concept not in known:
+                errors.append(
+                    f"{exercise.slug} references concept {concept!r}, "
+                    f"which is not in the top-level concepts array"
+                )
+    for exercise in track.practice_exercises:
+        for concept in exercise.practices + exercise.prerequisites:
+            if concept not in known:
+                errors.append(
+                    f"practice exercise {exercise.slug} references concept {concept!r}, "
+                    f"which is not in the top-level concepts array"
+                )
+
+
+def check_every_concept_taught(track, errors):
+    taught_at = track.concept_taught_at
+    for concept in track.concept_slugs:
+        if concept not in taught_at:
+            errors.append(f"concept {concept!r} is not taught by any Concept Exercise")
+
+    counts = {}
+    for exercise in track.concept_exercises:
+        for concept in exercise.concepts:
+            counts.setdefault(concept, []).append(exercise.slug)
+    for concept, slugs in counts.items():
+        if len(slugs) > 1:
+            errors.append(f"concept {concept!r} is taught by more than one exercise: {slugs}")
+
+
+def check_uuids_unique(track, errors):
+    seen = {}
+    entries = (
+        [(c["uuid"], f"concept {c['slug']}") for c in track.concepts]
+        + [(e.uuid, f"concept exercise {e.slug}") for e in track.concept_exercises]
+        + [(e.uuid, f"practice exercise {e.slug}") for e in track.practice_exercises]
+    )
+    for uuid, where in entries:
+        if uuid in seen:
+            errors.append(f"duplicate uuid {uuid}: {seen[uuid]} and {where}")
+        seen[uuid] = where
+
+
+def check_design_docs(track, errors):
+    for exercise in track.concept_exercises:
+        path = track.root / "exercises" / "concept" / exercise.slug / ".meta" / "design.md"
+        if not path.exists():
+            errors.append(f"{exercise.slug} is missing .meta/design.md")
+
+
+def check_task_ids(track, errors):
+    for exercise in track.concept_exercises:
+        directory = track.root / "exercises" / "concept" / exercise.slug
+        instructions = directory / ".docs" / "instructions.md"
+        test_file = directory / f"test_{exercise.slug.replace('-', '_')}.zig"
+        if not instructions.exists() or not test_file.exists():
+            continue
+
+        tasks = [int(n) for n in TASK_HEADING.findall(instructions.read_text(encoding="utf-8"))]
+        annotated = [int(n) for n in TASK_ANNOTATION.findall(test_file.read_text(encoding="utf-8"))]
+
+        if tasks != list(range(1, len(tasks) + 1)):
+            errors.append(f"{exercise.slug}: instructions.md task headings are not 1..N: {tasks}")
+
+        missing = sorted(set(tasks) - set(annotated))
+        if missing:
+            errors.append(
+                f"{exercise.slug}: no test is annotated `// task_id = N` for task(s) {missing}"
+            )
+        unknown = sorted(set(annotated) - set(tasks))
+        if unknown:
+            errors.append(
+                f"{exercise.slug}: test file has `// task_id = N` for task(s) {unknown}, "
+                f"which have no heading in instructions.md"
+            )
+
+
+CHECKS = (
+    check_one_concept_each,
+    check_prerequisite_order,
+    check_concept_order,
+    check_concepts_exist,
+    check_every_concept_taught,
+    check_uuids_unique,
+    check_design_docs,
+    check_task_ids,
+)
+
+
+def main() -> int:
+    track = Track()
+    errors = []
+    for check in CHECKS:
+        check(track, errors)
+
+    if errors:
+        for error in errors:
+            print(f"error: {error}", file=sys.stderr)
+        print(f"\n{len(errors)} problem(s) found.", file=sys.stderr)
+        return 1
+
+    print(
+        f"Syllabus is consistent: {len(track.concepts)} concepts, "
+        f"{len(track.concept_exercises)} concept exercises, "
+        f"{len(track.practice_exercises)} practice exercises."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

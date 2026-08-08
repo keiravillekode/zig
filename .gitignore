@@ -4,3 +4,4 @@ bin/configlet
 bin/configlet.exe
 zig-cache
 build/
+bin/__pycache__/
