@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "guess_my_number.zig"
+    ],
+    "test": [
+      "test_guess_my_number.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "guessing-game",
+  "blurb": "Learn about conditionals by refereeing a number guessing game."
+}

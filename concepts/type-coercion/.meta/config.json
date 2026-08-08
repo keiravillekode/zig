@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig converts between types on its own only when no information can be lost. Everything else needs an explicit builtin such as `@as` or `@intCast`.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

@@ -1,0 +1,7 @@
+{
+  "blurb": "A slice is a pointer paired with a length that views part of an array. `array[1..4]` produces one without copying anything.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

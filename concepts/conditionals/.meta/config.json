@@ -1,0 +1,7 @@
+{
+  "blurb": "`if` picks between two branches based on a `bool`. In Zig it is also an expression, so it can produce a value rather than just choosing a path.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

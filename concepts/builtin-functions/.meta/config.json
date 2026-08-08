@@ -1,0 +1,7 @@
+{
+  "blurb": "Builtins are functions the compiler provides directly, spelled with a leading `@`. They cover conversions, arithmetic limits and questions about types themselves.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

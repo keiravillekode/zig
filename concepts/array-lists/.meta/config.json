@@ -1,0 +1,7 @@
+{
+  "blurb": "`std.ArrayList` is a sequence that grows as you add to it, backed by an allocator, with `append` to add items and `items` to view them as a slice.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

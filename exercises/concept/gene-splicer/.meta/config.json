@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "gene_splicer.zig"
+    ],
+    "test": [
+      "test_gene_splicer.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "dna-encoding",
+  "blurb": "Learn about switch by splicing genes in a DNA lab."
+}

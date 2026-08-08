@@ -1,0 +1,7 @@
+{
+  "blurb": "A function that can fail returns an error union such as `!u32`. `try` hands the error up to the caller, and `catch` deals with it here.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

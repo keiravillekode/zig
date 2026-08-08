@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "currency_exchange_bot.zig"
+    ],
+    "test": [
+      "test_currency_exchange_bot.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "hyperia-forex",
+  "blurb": "Learn about integers by running a currency exchange bot."
+}

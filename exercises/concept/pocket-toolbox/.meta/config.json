@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "pocket_toolbox.zig"
+    ],
+    "test": [
+      "test_pocket_toolbox.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "instruments-of-texas",
+  "blurb": "Learn about builtin functions by reaching into a pocket toolbox."
+}

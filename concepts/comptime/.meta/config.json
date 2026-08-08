@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig can run code while it compiles. `comptime` marks values the compiler must already know, letting you compute constants and unroll loops before the program starts.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

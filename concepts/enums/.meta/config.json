@@ -1,0 +1,7 @@
+{
+  "blurb": "An enum is a type with a fixed, named set of values. Switching over one is exhaustive, so adding a value is a compile error until every switch handles it.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

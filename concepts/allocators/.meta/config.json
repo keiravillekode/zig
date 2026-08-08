@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig never allocates memory behind your back. A function that needs memory takes an `Allocator` parameter, and whatever it allocates must be freed.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

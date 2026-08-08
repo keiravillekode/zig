@@ -1,0 +1,7 @@
+{
+  "blurb": "A hash map stores values under keys and finds them again in roughly constant time. `std.StringHashMap` keys on strings and `std.AutoHashMap` on most other types.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

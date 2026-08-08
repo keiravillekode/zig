@@ -1,0 +1,7 @@
+{
+  "blurb": "A pointer `*T` refers to a value stored somewhere else. `&value` takes its address, and `pointer.*` reads or writes through it.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

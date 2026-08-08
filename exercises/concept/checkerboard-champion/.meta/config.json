@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "checkerboard_champion.zig"
+    ],
+    "test": [
+      "test_checkerboard_champion.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "chessboard",
+  "blurb": "Learn about arrays by setting up a checkerboard for a tournament."
+}

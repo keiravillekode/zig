@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "orchard_rounds.zig"
+    ],
+    "test": [
+      "test_orchard_rounds.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "bird-watcher",
+  "blurb": "Learn about control flow by counting birds on an orchard round."
+}

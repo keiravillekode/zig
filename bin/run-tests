@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+# Run every exercise's reference solution against its tests, using the locally
+# installed Zig. Concept Exercises keep their reference solution in
+# '.meta/exemplar.zig' and Practice Exercises in '.meta/example.zig'.
+
 execute_test() {
   (
     cd "${1}"
@@ -10,16 +14,22 @@ execute_test() {
 
     printf '%s\n' "Running tests for ${1}..." >&2
 
-    # Copy the examples with the correct name for the exercise
-    if [[ -f "./.meta/example.zig" ]]; then
-      mv ./.meta/example.zig "${exercise_name}".zig
-      # No building required, just test it
-      zig test "test_${exercise_name}.zig"
-      printf '\n' >&2
+    # Copy the reference solution over the stub, under the name the test file
+    # imports, then run the tests exactly as a student would.
+    local reference
+    if [[ -f "./.meta/exemplar.zig" ]]; then
+      reference="./.meta/exemplar.zig"
+    elif [[ -f "./.meta/example.zig" ]]; then
+      reference="./.meta/example.zig"
     else
-      printf '%s\n' "Error: ${exercise_name} lacks its '.meta/example.zig' file" >&2
+      printf '%s\n' "Error: ${1} lacks its '.meta/exemplar.zig' or '.meta/example.zig' file" >&2
       exit 1
     fi
+
+    mv "${reference}" "${exercise_name}".zig
+    # No building required, just test it
+    zig test "test_${exercise_name}.zig"
+    printf '\n' >&2
   )
 }
 
@@ -36,8 +46,14 @@ main() {
 
   # Clear up any previous run
   rm -rf build
+  mkdir build
 
-  cp -r exercises/practice build
+  # Both kinds of exercise are laid out the same way, so they can be copied
+  # into one flat working directory and tested identically.
+  cp -r exercises/practice/* build/
+  if [[ -d "exercises/concept" ]]; then
+    cp -r exercises/concept/* build/
+  fi
 
   (
     cd build/
@@ -47,7 +63,7 @@ main() {
       local exercises=("$@")
       for exercise in "${exercises[@]}"; do
         if [[ ! -d "${exercise}" ]]; then
-          printf '%s\n' "Error: the specified exercise '${1}' does not exist" >&2
+          printf '%s\n' "Error: the specified exercise '${exercise}' does not exist" >&2
           exit 1
         fi
       done

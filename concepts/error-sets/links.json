@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#Errors",
+    "description": "Zig Language Reference: Errors"
+  },
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#Error-Set-Type",
+    "description": "Zig Language Reference: Error Set Type"
+  },
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#Error-Union-Type",
+    "description": "Zig Language Reference: Error Union Type"
+  }
+]

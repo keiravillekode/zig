@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/std/#std.StringHashMap",
+    "description": "Zig Standard Library: std.StringHashMap"
+  },
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/std/#std.AutoHashMap",
+    "description": "Zig Standard Library: std.AutoHashMap"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "adventuring_party.zig"
+    ],
+    "test": [
+      "test_adventuring_party.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "wizards-and-warriors",
+  "blurb": "Learn about unions by assembling an adventuring party."
+}

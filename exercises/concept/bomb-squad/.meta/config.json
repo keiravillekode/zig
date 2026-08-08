@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "bomb_squad.zig"
+    ],
+    "test": [
+      "test_bomb_squad.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "bomb-defuser",
+  "blurb": "Learn about error sets by defusing bombs with a disposal robot."
+}

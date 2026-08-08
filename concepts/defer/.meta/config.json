@@ -1,0 +1,7 @@
+{
+  "blurb": "`defer` schedules a statement to run when the current block exits, however it exits, keeping cleanup next to the code that made the mess.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

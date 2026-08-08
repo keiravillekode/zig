@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#Memory",
+    "description": "Zig Language Reference: Memory"
+  },
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/std/#std.mem.Allocator",
+    "description": "Zig Standard Library: std.mem.Allocator"
+  }
+]

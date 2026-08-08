@@ -3,7 +3,7 @@
   "slug": "zig",
   "active": true,
   "status": {
-    "concept_exercises": false,
+    "concept_exercises": true,
     "test_runner": true,
     "representer": false,
     "analyzer": false
@@ -33,13 +33,318 @@
     ]
   },
   "exercises": {
+    "concept": [
+      {
+        "slug": "alchemists-apprentice",
+        "name": "Alchemist's Apprentice",
+        "uuid": "2c180677-3ab8-4ec2-ae25-91767dd34a10",
+        "concepts": [
+          "basics"
+        ],
+        "prerequisites": []
+      },
+      {
+        "slug": "tech-palace-opening",
+        "name": "Tech Palace Opening",
+        "uuid": "b4361d53-8cfe-49ab-a82a-9f8a881a1401",
+        "concepts": [
+          "importing"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "arcade-door-policy",
+        "name": "Arcade Door Policy",
+        "uuid": "2362f3a0-4085-4527-9e65-2073855e3cf0",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "guess-my-number",
+        "name": "Guess My Number",
+        "uuid": "0ff72f7e-b4dc-4324-841f-fb94499430a4",
+        "concepts": [
+          "conditionals"
+        ],
+        "prerequisites": [
+          "booleans"
+        ]
+      },
+      {
+        "slug": "currency-exchange-bot",
+        "name": "Currency Exchange Bot",
+        "uuid": "7509fff1-58af-47d1-a161-847982b7add1",
+        "concepts": [
+          "integers"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "weigh-station",
+        "name": "Weigh Station",
+        "uuid": "56f691fe-e9cf-48ab-ae0a-abf1c6a38adb",
+        "concepts": [
+          "type-coercion"
+        ],
+        "prerequisites": [
+          "integers"
+        ]
+      },
+      {
+        "slug": "seedling-savings",
+        "name": "Seedling Savings",
+        "uuid": "488f1915-f33f-4a2a-8e64-59eda1385233",
+        "concepts": [
+          "floats"
+        ],
+        "prerequisites": [
+          "integers",
+          "type-coercion"
+        ]
+      },
+      {
+        "slug": "orchard-rounds",
+        "name": "Orchard Rounds",
+        "uuid": "7c9e98c0-294f-4a2c-a1e5-45c97b374d06",
+        "concepts": [
+          "control-flow"
+        ],
+        "prerequisites": [
+          "conditionals"
+        ]
+      },
+      {
+        "slug": "gene-splicer",
+        "name": "Gene Splicer",
+        "uuid": "d3479c2c-5a74-45cd-a179-0f6b6021ada6",
+        "concepts": [
+          "switch"
+        ],
+        "prerequisites": [
+          "conditionals"
+        ]
+      },
+      {
+        "slug": "checkerboard-champion",
+        "name": "Checkerboard Champion",
+        "uuid": "8a137278-d860-4406-a167-62bed56f5598",
+        "concepts": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "control-flow"
+        ]
+      },
+      {
+        "slug": "slice-shop",
+        "name": "Slice Shop",
+        "uuid": "c03ff780-ca7c-4199-8ba9-0b027536c9f7",
+        "concepts": [
+          "slices"
+        ],
+        "prerequisites": [
+          "arrays"
+        ]
+      },
+      {
+        "slug": "sign-painter",
+        "name": "Sign Painter",
+        "uuid": "a509d05c-8524-43d4-a181-e04175885a64",
+        "concepts": [
+          "strings"
+        ],
+        "prerequisites": [
+          "slices",
+          "importing"
+        ]
+      },
+      {
+        "slug": "lost-property-office",
+        "name": "Lost Property Office",
+        "uuid": "ee5710c1-0a1d-4f68-8784-f84746a442e4",
+        "concepts": [
+          "optionals"
+        ],
+        "prerequisites": [
+          "conditionals"
+        ]
+      },
+      {
+        "slug": "bomb-squad",
+        "name": "Bomb Squad",
+        "uuid": "eb0bab6a-05c1-4bea-92d3-3dd7cb037991",
+        "concepts": [
+          "error-sets"
+        ],
+        "prerequisites": [
+          "optionals"
+        ]
+      },
+      {
+        "slug": "speed-trap",
+        "name": "Speed Trap",
+        "uuid": "7271ddc9-d902-4feb-888b-6956ed7cad9b",
+        "concepts": [
+          "structs"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "arcade-leaderboard",
+        "name": "Arcade Leaderboard",
+        "uuid": "5df19883-6dbd-483f-bc11-aa2e04f67cd7",
+        "concepts": [
+          "methods"
+        ],
+        "prerequisites": [
+          "structs"
+        ]
+      },
+      {
+        "slug": "four-colours-home",
+        "name": "Four Colours Home",
+        "uuid": "25b0d332-7d97-4073-9caf-09b85672f87a",
+        "concepts": [
+          "enums"
+        ],
+        "prerequisites": [
+          "switch"
+        ]
+      },
+      {
+        "slug": "adventuring-party",
+        "name": "Adventuring Party",
+        "uuid": "b11a4924-78d8-47c6-b347-65c4025f1554",
+        "concepts": [
+          "unions"
+        ],
+        "prerequisites": [
+          "enums",
+          "structs"
+        ]
+      },
+      {
+        "slug": "chain-gang",
+        "name": "Chain Gang",
+        "uuid": "addd1b38-857c-4c01-8808-c6d35810ed18",
+        "concepts": [
+          "pointers"
+        ],
+        "prerequisites": [
+          "structs"
+        ]
+      },
+      {
+        "slug": "cellar-service",
+        "name": "Cellar Service",
+        "uuid": "53744999-7f8e-4fa0-86da-a77281d0cb6e",
+        "concepts": [
+          "defer"
+        ],
+        "prerequisites": [
+          "error-sets"
+        ]
+      },
+      {
+        "slug": "sorting-room-shift",
+        "name": "Sorting Room Shift",
+        "uuid": "08ab5d65-899b-490a-b8e5-5df3bb4f3ae4",
+        "concepts": [
+          "allocators"
+        ],
+        "prerequisites": [
+          "defer",
+          "slices"
+        ]
+      },
+      {
+        "slug": "road-trip-playlist",
+        "name": "Road Trip Playlist",
+        "uuid": "17dcafef-802d-48f5-9398-cfd67ed43e2b",
+        "concepts": [
+          "array-lists"
+        ],
+        "prerequisites": [
+          "allocators"
+        ]
+      },
+      {
+        "slug": "ransom-note",
+        "name": "Ransom Note",
+        "uuid": "90537bd4-14de-496c-a34b-66fa8850536e",
+        "concepts": [
+          "hash-maps"
+        ],
+        "prerequisites": [
+          "allocators",
+          "strings"
+        ]
+      },
+      {
+        "slug": "vault-combination",
+        "name": "Vault Combination",
+        "uuid": "f146453f-58f2-4e5e-9df3-273f4886ad6e",
+        "concepts": [
+          "bitwise-operations"
+        ],
+        "prerequisites": [
+          "integers"
+        ]
+      },
+      {
+        "slug": "pocket-toolbox",
+        "name": "Pocket Toolbox",
+        "uuid": "3e19e35b-5f91-46a0-a49f-d74d668961dd",
+        "concepts": [
+          "builtin-functions"
+        ],
+        "prerequisites": [
+          "integers",
+          "slices"
+        ]
+      },
+      {
+        "slug": "handheld-console",
+        "name": "Handheld Console",
+        "uuid": "e025695c-a828-4fbe-986b-86fcf7d4e8bd",
+        "concepts": [
+          "comptime"
+        ],
+        "prerequisites": [
+          "arrays",
+          "builtin-functions"
+        ]
+      },
+      {
+        "slug": "universal-translator",
+        "name": "Universal Translator",
+        "uuid": "74902963-8d82-4701-85d9-95c7e361b3f5",
+        "concepts": [
+          "generics"
+        ],
+        "prerequisites": [
+          "comptime",
+          "structs"
+        ]
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
         "name": "Hello World",
         "uuid": "25a0331e-612f-48c1-8a3f-9b0e9601a2fa",
         "practices": [
-          "functions",
+          "basics",
           "slices",
           "type-coercion"
         ],
@@ -51,18 +356,18 @@
         "name": "Isogram",
         "uuid": "93a9b5bd-b495-4a7d-86fe-b71fd0343336",
         "practices": [
-          "builtin-functions",
+          "basics",
           "bitwise-operations",
+          "builtin-functions",
           "conditionals",
-          "control-flow",
-          "functions"
+          "control-flow"
         ],
         "prerequisites": [
-          "builtin-functions",
+          "basics",
           "bitwise-operations",
+          "builtin-functions",
           "conditionals",
-          "control-flow",
-          "functions"
+          "control-flow"
         ],
         "difficulty": 1
       },
@@ -71,12 +376,12 @@
         "name": "Leap",
         "uuid": "5e8e92f6-e8c7-49f1-8ebf-a93f73998d47",
         "practices": [
-          "conditionals",
-          "functions"
+          "basics",
+          "conditionals"
         ],
         "prerequisites": [
-          "conditionals",
-          "functions"
+          "basics",
+          "conditionals"
         ],
         "difficulty": 1
       },
@@ -126,13 +431,11 @@
         "uuid": "3342ce3f-5569-4a11-944b-ef7c7e678fa2",
         "practices": [
           "integers",
-          "math",
           "slices",
           "strings"
         ],
         "prerequisites": [
           "integers",
-          "math",
           "slices",
           "strings"
         ],
@@ -179,11 +482,9 @@
         "name": "Scrabble Score",
         "uuid": "75372668-762c-4c5e-98c4-1093e3a92a88",
         "practices": [
-          "games",
           "strings"
         ],
         "prerequisites": [
-          "games",
           "strings"
         ],
         "difficulty": 1
@@ -193,18 +494,18 @@
         "name": "Space Age",
         "uuid": "280bd414-898d-4ab9-8a7c-f9c0d1e382f6",
         "practices": [
+          "basics",
           "builtin-functions",
           "control-flow",
           "enums",
-          "functions",
           "methods",
           "structs"
         ],
         "prerequisites": [
+          "basics",
           "builtin-functions",
           "control-flow",
           "enums",
-          "functions",
           "methods",
           "structs"
         ],
@@ -216,13 +517,11 @@
         "uuid": "a9ba66ae-85d1-490e-a421-e2e35f90231e",
         "practices": [
           "allocators",
-          "integers",
-          "math"
+          "integers"
         ],
         "prerequisites": [
           "allocators",
-          "integers",
-          "math"
+          "integers"
         ],
         "difficulty": 1
       },
@@ -231,18 +530,18 @@
         "name": "Triangle",
         "uuid": "d36abb68-78cc-4c99-8693-00e02eb9011e",
         "practices": [
+          "basics",
           "bitwise-operations",
           "conditionals",
           "error-sets",
-          "functions",
           "methods",
           "structs"
         ],
         "prerequisites": [
+          "basics",
           "bitwise-operations",
           "conditionals",
           "error-sets",
-          "functions",
           "methods",
           "structs"
         ],
@@ -253,16 +552,16 @@
         "name": "Two-Fer",
         "uuid": "866a09d8-6949-4363-b83f-7b9fefb53893",
         "practices": [
+          "basics",
           "conditionals",
           "error-sets",
-          "functions",
           "optionals",
           "slices"
         ],
         "prerequisites": [
+          "basics",
           "conditionals",
           "error-sets",
-          "functions",
           "optionals",
           "slices"
         ],
@@ -274,18 +573,18 @@
         "uuid": "0590d6df-afbe-4983-92d4-8fe6797ad5fa",
         "practices": [
           "allocators",
+          "basics",
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "slices"
         ],
         "prerequisites": [
           "allocators",
+          "basics",
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "slices"
         ],
         "difficulty": 2
@@ -295,12 +594,10 @@
         "name": "Armstrong Numbers",
         "uuid": "386c397f-d9d5-4647-8bf8-671abd5cc8a1",
         "practices": [
-          "integers",
-          "math"
+          "integers"
         ],
         "prerequisites": [
-          "integers",
-          "math"
+          "integers"
         ],
         "difficulty": 2
       },
@@ -309,14 +606,14 @@
         "name": "Collatz Conjecture",
         "uuid": "3c5268f9-d8d7-46b4-a751-a4ff3774a3e1",
         "practices": [
+          "basics",
           "builtin-functions",
-          "control-flow",
-          "functions"
+          "control-flow"
         ],
         "prerequisites": [
+          "basics",
           "builtin-functions",
-          "control-flow",
-          "functions"
+          "control-flow"
         ],
         "difficulty": 2
       },
@@ -325,15 +622,15 @@
         "name": "Darts",
         "uuid": "3819c81e-db22-4aac-b745-5eec450b7b4d",
         "practices": [
+          "basics",
           "conditionals",
-          "functions",
           "importing",
           "methods",
           "structs"
         ],
         "prerequisites": [
+          "basics",
           "conditionals",
-          "functions",
           "importing",
           "methods",
           "structs"
@@ -345,12 +642,12 @@
         "name": "Difference of Squares",
         "uuid": "7f1ae5db-82f6-44b0-a5b4-a206f29c4bb0",
         "practices": [
-          "builtin-functions",
-          "functions"
+          "basics",
+          "builtin-functions"
         ],
         "prerequisites": [
-          "builtin-functions",
-          "functions"
+          "basics",
+          "builtin-functions"
         ],
         "difficulty": 2
       },
@@ -378,15 +675,14 @@
           "bitwise-operations",
           "builtin-functions",
           "conditionals",
-          "error-sets",
-          "functions"
+          "error-sets"
         ],
         "prerequisites": [
+          "basics",
           "bitwise-operations",
           "builtin-functions",
           "conditionals",
-          "error-sets",
-          "functions"
+          "error-sets"
         ],
         "difficulty": 2
       },
@@ -398,15 +694,14 @@
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "slices",
           "type-coercion"
         ],
         "prerequisites": [
+          "basics",
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "slices",
           "type-coercion"
         ],
@@ -428,16 +723,15 @@
           "arrays",
           "builtin-functions",
           "enums",
-          "functions",
           "pointers",
           "slices",
           "type-coercion"
         ],
         "prerequisites": [
           "arrays",
+          "basics",
           "builtin-functions",
           "enums",
-          "functions",
           "pointers",
           "slices",
           "type-coercion"
@@ -451,14 +745,13 @@
         "practices": [
           "arrays",
           "builtin-functions",
-          "enums",
-          "functions"
+          "enums"
         ],
         "prerequisites": [
           "arrays",
+          "basics",
           "builtin-functions",
-          "enums",
-          "functions"
+          "enums"
         ],
         "difficulty": 2
       },
@@ -498,12 +791,12 @@
         "uuid": "74d33b36-1c1c-45ca-9c8b-da9f1f97ea0b",
         "practices": [
           "allocators",
-          "hashmaps",
+          "hash-maps",
           "slices"
         ],
         "prerequisites": [
           "allocators",
-          "hashmaps",
+          "hash-maps",
           "slices"
         ],
         "difficulty": 3
@@ -515,14 +808,13 @@
         "practices": [
           "control-flow",
           "generics",
-          "functions",
           "optionals",
           "type-coercion"
         ],
         "prerequisites": [
+          "basics",
           "control-flow",
           "generics",
-          "functions",
           "optionals",
           "type-coercion"
         ],
@@ -533,7 +825,6 @@
         "name": "Bob",
         "uuid": "044ff920-f4a6-408a-b2a2-6923b0764178",
         "practices": [
-          "conditionals",
           "strings"
         ],
         "prerequisites": [
@@ -555,14 +846,10 @@
         "name": "D&D Character",
         "uuid": "2f4c1391-6e16-40bd-a4a9-883f51066cf3",
         "practices": [
-          "integers",
-          "math",
-          "randomness"
+          "integers"
         ],
         "prerequisites": [
-          "integers",
-          "math",
-          "randomness"
+          "integers"
         ],
         "difficulty": 3
       },
@@ -572,12 +859,10 @@
         "uuid": "d9242387-064a-4ba8-8b04-b5cfe68ae9a2",
         "practices": [
           "integers",
-          "math",
           "strings"
         ],
         "prerequisites": [
           "integers",
-          "math",
           "strings"
         ],
         "difficulty": 3
@@ -611,16 +896,12 @@
         "name": "Perfect Numbers",
         "uuid": "2fbd5bd8-a839-42a3-9293-4ad577766a12",
         "practices": [
-          "asserting",
           "enums",
-          "integers",
-          "math"
+          "integers"
         ],
         "prerequisites": [
-          "asserting",
           "enums",
-          "integers",
-          "math"
+          "integers"
         ],
         "difficulty": 3
       },
@@ -654,18 +935,15 @@
         "uuid": "7b7db815-5e14-477e-8012-f7719561dd8f",
         "practices": [
           "allocators",
-          "conditionals",
           "control-flow",
-          "error-sets",
-          "functions",
-          "slices"
+          "error-sets"
         ],
         "prerequisites": [
           "allocators",
+          "basics",
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "slices"
         ],
         "difficulty": 3
@@ -705,19 +983,16 @@
         "practices": [
           "allocators",
           "bitwise-operations",
-          "conditionals",
-          "control-flow",
           "error-sets",
-          "functions",
           "importing"
         ],
         "prerequisites": [
           "allocators",
+          "basics",
           "bitwise-operations",
           "conditionals",
           "control-flow",
           "error-sets",
-          "functions",
           "importing"
         ],
         "difficulty": 3
@@ -727,15 +1002,10 @@
         "name": "Sieve",
         "uuid": "b9533606-bbbd-4110-8adc-54ccf94af1a6",
         "practices": [
-          "algorithms",
-          "integers",
-          "math",
-          "slices"
+          "integers"
         ],
         "prerequisites": [
-          "algorithms",
           "integers",
-          "math",
           "slices"
         ],
         "difficulty": 3
@@ -762,15 +1032,12 @@
         "uuid": "52281bbe-e1f6-4423-8092-6a8940a50ced",
         "practices": [
           "allocators",
-          "error-sets",
-          "integers",
-          "math"
+          "integers"
         ],
         "prerequisites": [
           "allocators",
           "error-sets",
-          "integers",
-          "math"
+          "integers"
         ],
         "difficulty": 4
       },
@@ -834,7 +1101,6 @@
         "uuid": "47ef24ce-745a-4dfe-a7a8-370d8a324d52",
         "practices": [
           "comptime",
-          "data-structures",
           "generics",
           "optionals",
           "pointers",
@@ -842,7 +1108,6 @@
         ],
         "prerequisites": [
           "comptime",
-          "data-structures",
           "generics",
           "optionals",
           "pointers",
@@ -856,12 +1121,10 @@
         "uuid": "ca72ff14-470d-4679-ad36-82ea9d2890bc",
         "practices": [
           "integers",
-          "math",
           "strings"
         ],
         "prerequisites": [
           "integers",
-          "math",
           "strings"
         ],
         "difficulty": 4
@@ -953,13 +1216,11 @@
         "uuid": "f73c7be1-ee3a-4fff-93f2-a8f5ab793ca1",
         "practices": [
           "arrays",
-          "enums",
-          "games"
+          "enums"
         ],
         "prerequisites": [
           "arrays",
-          "enums",
-          "games"
+          "enums"
         ],
         "difficulty": 4
       },
@@ -1193,11 +1454,11 @@
         "uuid": "809cf06c-442b-4214-83ee-de7cf7e1a6fb",
         "practices": [
           "allocators",
-          "hashmaps"
+          "hash-maps"
         ],
         "prerequisites": [
           "allocators",
-          "hashmaps"
+          "hash-maps"
         ],
         "difficulty": 8
       },
@@ -1219,6 +1480,143 @@
       }
     ]
   },
+  "concepts": [
+    {
+      "uuid": "d789fedf-ec57-4b83-93b0-804b778a2ae5",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "99997271-5f0e-44bf-8022-b48763324765",
+      "slug": "importing",
+      "name": "Importing"
+    },
+    {
+      "uuid": "a1612650-3ca6-47bc-926f-d95bf05e4ade",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
+      "uuid": "10d5d45a-0fa6-4a23-9c6b-ef9a425c6c80",
+      "slug": "conditionals",
+      "name": "Conditionals"
+    },
+    {
+      "uuid": "dac35445-c26b-4f70-aa20-ca12b168056d",
+      "slug": "integers",
+      "name": "Integers"
+    },
+    {
+      "uuid": "4b2b72c6-5eff-441a-819f-c640b6c0c52a",
+      "slug": "type-coercion",
+      "name": "Type Coercion"
+    },
+    {
+      "uuid": "74e10a8f-2e8e-4ed1-8254-add11ecbacc1",
+      "slug": "floats",
+      "name": "Floats"
+    },
+    {
+      "uuid": "8303c41b-38c8-4fe9-a264-63f92a8f5625",
+      "slug": "control-flow",
+      "name": "Control Flow"
+    },
+    {
+      "uuid": "7e8fc44d-a428-404e-9ff8-82cd4bd1d7c0",
+      "slug": "switch",
+      "name": "Switch"
+    },
+    {
+      "uuid": "d5f2e233-7841-4be3-a9e0-5becdeda4f31",
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
+      "uuid": "f546a4e2-85c8-4fb8-bd3b-7f7a16df5a40",
+      "slug": "slices",
+      "name": "Slices"
+    },
+    {
+      "uuid": "9ad83ead-463f-448b-9f5b-e18bd9b430ce",
+      "slug": "strings",
+      "name": "Strings"
+    },
+    {
+      "uuid": "953f7714-f1b6-40b9-ab85-b060ee3e253c",
+      "slug": "optionals",
+      "name": "Optionals"
+    },
+    {
+      "uuid": "afb21c9d-a36c-4b39-a492-8c17a81224f7",
+      "slug": "error-sets",
+      "name": "Error Sets"
+    },
+    {
+      "uuid": "9e05e46a-b084-406b-8c8e-3359e7aa2b62",
+      "slug": "structs",
+      "name": "Structs"
+    },
+    {
+      "uuid": "5c09a3f5-2705-41b5-9836-e5163d0fa51b",
+      "slug": "methods",
+      "name": "Methods"
+    },
+    {
+      "uuid": "f3a90572-c81d-4b94-b064-ee48f42b865e",
+      "slug": "enums",
+      "name": "Enums"
+    },
+    {
+      "uuid": "8da59260-fb73-42f8-a1ec-835469d7b66d",
+      "slug": "unions",
+      "name": "Unions"
+    },
+    {
+      "uuid": "f0bdf17a-072f-4ef2-90a9-aff85801d7bb",
+      "slug": "pointers",
+      "name": "Pointers"
+    },
+    {
+      "uuid": "faaf9d65-5a3e-4027-bd28-576319676d58",
+      "slug": "defer",
+      "name": "Defer"
+    },
+    {
+      "uuid": "c5209281-3c5f-46bc-b4ca-6b188d47a50d",
+      "slug": "allocators",
+      "name": "Allocators"
+    },
+    {
+      "uuid": "4eb5df44-f267-4954-9107-52186d15b826",
+      "slug": "array-lists",
+      "name": "Array Lists"
+    },
+    {
+      "uuid": "afad05f9-e0fa-495d-8c73-a6dee4412ed5",
+      "slug": "hash-maps",
+      "name": "Hash Maps"
+    },
+    {
+      "uuid": "ccd66ad0-fcb5-40ed-87c3-10ed47e827e1",
+      "slug": "bitwise-operations",
+      "name": "Bitwise Operations"
+    },
+    {
+      "uuid": "3e40fcff-0f02-4aa4-8ace-7cb5f5ff9ab3",
+      "slug": "builtin-functions",
+      "name": "Builtin Functions"
+    },
+    {
+      "uuid": "298aceb0-1e3e-43f5-9175-5a5ce5497261",
+      "slug": "comptime",
+      "name": "Comptime"
+    },
+    {
+      "uuid": "1be65926-b6a6-472f-b617-bd89ba5dab9a",
+      "slug": "generics",
+      "name": "Generics"
+    }
+  ],
   "key_features": [
     {
       "title": "Simple",

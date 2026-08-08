@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "arcade_door_policy.zig"
+    ],
+    "test": [
+      "test_arcade_door_policy.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "faceid-2",
+  "blurb": "Learn about booleans by deciding who gets through the arcade door."
+}
