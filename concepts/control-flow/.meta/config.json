@@ -1,0 +1,7 @@
+{
+  "blurb": "`while` and `for` repeat work. `for` walks arrays and slices directly, `while` runs until a condition fails, and `break` and `continue` steer both.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

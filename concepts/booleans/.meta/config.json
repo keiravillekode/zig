@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig's `bool` type has exactly two values, `true` and `false`, combined with the short-circuiting operators `and`, `or` and `!`.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

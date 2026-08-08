@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "lost_property_office.zig"
+    ],
+    "test": [
+      "test_lost_property_office.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "missing-number",
+  "blurb": "Learn about optionals by running a lost property office."
+}

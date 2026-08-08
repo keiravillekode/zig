@@ -1,0 +1,7 @@
+{
+  "blurb": "Bitwise operators work on the individual bits of an integer: `&`, `|`, `^` and `~`, plus the shifts `<<` and `>>`.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

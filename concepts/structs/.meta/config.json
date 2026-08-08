@@ -1,0 +1,7 @@
+{
+  "blurb": "A struct groups related values under named fields, and every struct declaration creates a brand new type.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

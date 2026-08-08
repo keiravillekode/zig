@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "alchemists_apprentice.zig"
+    ],
+    "test": [
+      "test_alchemists_apprentice.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "bread-and-potions",
+  "blurb": "Learn about basics by helping an alchemist's apprentice brew and price potions."
+}

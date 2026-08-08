@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig integers carry their width and signedness in the type: `u8`, `i32`, `u64`. Overflow is a bug the compiler catches, and separate operators opt into wrapping or saturating arithmetic.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "weigh_station.zig"
+    ],
+    "test": [
+      "test_weigh_station.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "weighing-machine",
+  "blurb": "Learn about type coercion by calibrating a weigh station."
+}

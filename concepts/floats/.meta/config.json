@@ -1,0 +1,7 @@
+{
+  "blurb": "`f32` and `f64` hold fractional values. Moving between floats and integers is always explicit, through `@floatFromInt` and `@intFromFloat`.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

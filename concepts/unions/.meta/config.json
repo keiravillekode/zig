@@ -1,0 +1,7 @@
+{
+  "blurb": "A tagged union holds exactly one of several differently-typed values at a time, and its enum tag records which one. `switch` unwraps it.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

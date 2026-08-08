@@ -1,0 +1,7 @@
+{
+  "blurb": "A Zig generic is an ordinary function that takes a `type` as a compile-time parameter and returns a type, or a value built from it.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

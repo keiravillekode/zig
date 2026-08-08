@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "sorting_room_shift.zig"
+    ],
+    "test": [
+      "test_sorting_room_shift.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "sorting-room",
+  "blurb": "Learn about allocators by working a shift in the sorting room."
+}

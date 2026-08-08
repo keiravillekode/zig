@@ -1,0 +1,7 @@
+{
+  "blurb": "`@import` pulls in another Zig file or the standard library and hands it back as a struct, whose public declarations you reach with a dot.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

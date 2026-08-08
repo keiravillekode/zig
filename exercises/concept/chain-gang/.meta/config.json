@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "chain_gang.zig"
+    ],
+    "test": [
+      "test_chain_gang.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "doubly-linked-list",
+  "blurb": "Learn about pointers by linking a chain gang together."
+}

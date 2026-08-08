@@ -1,0 +1,7 @@
+{
+  "blurb": "Zig programs are built from functions and named values. `const` binds a value that never changes, `var` binds one that can, and every function states the types it takes and returns.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

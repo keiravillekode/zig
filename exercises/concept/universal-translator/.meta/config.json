@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "universal_translator.zig"
+    ],
+    "test": [
+      "test_universal_translator.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "translation-service",
+  "blurb": "Learn about generics by building a universal translator."
+}

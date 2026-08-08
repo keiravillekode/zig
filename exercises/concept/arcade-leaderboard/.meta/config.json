@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "arcade_leaderboard.zig"
+    ],
+    "test": [
+      "test_arcade_leaderboard.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "high-score-board",
+  "blurb": "Learn about methods by keeping an arcade leaderboard."
+}

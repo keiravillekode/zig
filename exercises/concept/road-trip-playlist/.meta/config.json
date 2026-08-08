@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "road_trip_playlist.zig"
+    ],
+    "test": [
+      "test_road_trip_playlist.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "ozans-playlist",
+  "blurb": "Learn about array lists by building a road trip playlist."
+}

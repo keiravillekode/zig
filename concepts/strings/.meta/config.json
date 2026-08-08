@@ -1,0 +1,7 @@
+{
+  "blurb": "A Zig string is a slice of bytes, `[]const u8`, with no separate string type. The `std.mem` functions compare, search and split them.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

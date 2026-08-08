@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#defer",
+    "description": "Zig Language Reference: defer"
+  },
+  {
+    "url": "https://ziglang.org/documentation/0.16.0/#errdefer",
+    "description": "Zig Language Reference: errdefer"
+  }
+]

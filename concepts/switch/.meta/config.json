@@ -1,0 +1,7 @@
+{
+  "blurb": "`switch` matches a value against a list of cases, including ranges and several values per branch, and insists that every possible value is handled.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

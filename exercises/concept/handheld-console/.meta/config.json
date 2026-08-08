@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "handheld_console.zig"
+    ],
+    "test": [
+      "test_handheld_console.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "low-power-embedded-game",
+  "blurb": "Learn about comptime by squeezing a game onto a handheld console."
+}

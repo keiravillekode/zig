@@ -1,0 +1,7 @@
+{
+  "blurb": "A function declared inside a struct can be called with dot syntax on a value of that struct, which is passed as the first parameter, `self`.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

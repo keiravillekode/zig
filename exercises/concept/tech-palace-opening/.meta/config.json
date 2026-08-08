@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "tech_palace_opening.zig"
+    ],
+    "test": [
+      "test_tech_palace_opening.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ],
+    "editor": [
+      "catalog.zig"
+    ]
+  },
+  "icon": "welcome-to-tech-palace",
+  "blurb": "Learn about importing by opening the doors of a new electronics store."
+}

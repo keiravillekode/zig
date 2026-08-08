@@ -1,0 +1,7 @@
+{
+  "blurb": "An optional type `?T` holds either a `T` or `null`. Zig makes you unwrap it, with `orelse` or an `if` capture, before the value can be used.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}

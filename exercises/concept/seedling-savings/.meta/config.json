@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "seedling_savings.zig"
+    ],
+    "test": [
+      "test_seedling_savings.zig"
+    ],
+    "exemplar": [
+      ".meta/exemplar.zig"
+    ]
+  },
+  "icon": "interest-is-interesting",
+  "blurb": "Learn about floats by growing savings from a handful of seeds."
+}

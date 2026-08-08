@@ -1,0 +1,7 @@
+{
+  "blurb": "An array holds a fixed number of values of one type, and its length is part of its type, so `[5]u8` and `[6]u8` are different types.",
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": []
+}
