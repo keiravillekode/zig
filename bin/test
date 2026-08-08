@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 # Synopsis:
-# Test the zig track's exercises.
+# Test the zig track's exercises against the real test runner.
 #
-# For each exercise we test if the example solution
-# .meta/example.zig passes the tests.
+# For each exercise we test if the reference solution passes the tests:
+# '.meta/exemplar.zig' for Concept Exercises, '.meta/example.zig' for
+# Practice Exercises.
 #
 # Usage:
 # ./bin/test [slug...]
 
 all_slugs="$*"
 if [ -z "$all_slugs" ]; then
-  all_slugs=$(ls ./exercises/practice/)
+  all_slugs=$(ls ./exercises/concept/ ./exercises/practice/)
 fi
 
 docker run --rm --entrypoint bash \

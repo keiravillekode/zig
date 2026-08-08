@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Synopsis:
-# Scaffold the files for a new practice exercise.
+# Scaffold the files for a new practice or concept exercise.
 # After creating the exercise, follow the instructions in the output.
 
 # Example:
@@ -13,14 +13,18 @@
 # Example with author and difficulty:
 # bin/add-exercise -a foo -d 3 two-fer
 
+# Example of a concept exercise, which takes a concept rather than a difficulty:
+# bin/add-exercise -c optionals lost-property-office
+
 set -euo pipefail
 scriptname=$0
 
 help_and_exit() {
-    echo >&2 "Scaffold the files for a new practice exercise."
-    echo >&2 "Usage: ${scriptname} [-h] [-a author] [-d difficulty] <exercise-slug>"
+    echo >&2 "Scaffold the files for a new practice or concept exercise."
+    echo >&2 "Usage: ${scriptname} [-h] [-a author] [-d difficulty] [-c concept] <exercise-slug>"
     echo >&2 "Where: author is the GitHub username of the exercise creator."
-    echo >&2 "Where: difficulty is between 1 (easiest) to 10 (hardest)."
+    echo >&2 "Where: difficulty is between 1 (easiest) to 10 (hardest); practice exercises only."
+    echo >&2 "Where: concept is the single concept a concept exercise teaches."
     exit 1
 }
 
@@ -41,16 +45,19 @@ required_tool jq
 require_files_template "solution"
 require_files_template "test"
 require_files_template "example"
+require_files_template "exemplar"
 
 [[ -f ./bin/fetch-configlet ]] || die "Run this script from the repo's root directory."
 
 author=''
 difficulty='4'
-while getopts :ha:d: opt; do
+concept=''
+while getopts :ha:d:c: opt; do
     case $opt in
         h) help_and_exit ;;
         a) author=$OPTARG ;;
         d) difficulty=$OPTARG ;;
+        c) concept=$OPTARG ;;
         ?) echo >&2 "Unknown option: -$OPTARG"; help_and_exit ;;
     esac
 done
@@ -65,13 +72,50 @@ if [[ -z "${author}" ]]; then
 fi
 
 ./bin/fetch-configlet
-./bin/configlet create --practice-exercise "${slug}" --author "${author}" --difficulty "${difficulty}"
 
-filter='.exercises.practice = (.exercises.practice | sort_by(.difficulty, .slug))'
-jq "${filter}" config.json > config.sorted && mv config.sorted config.json
+if [[ -n "${concept}" ]]; then
+    ./bin/configlet create --concept-exercise "${slug}" --author "${author}"
+    exercise_dir="exercises/concept/${slug}"
+else
+    ./bin/configlet create --practice-exercise "${slug}" --author "${author}" --difficulty "${difficulty}"
 
-exercise_dir="exercises/practice/${slug}"
+    filter='.exercises.practice = (.exercises.practice | sort_by(.difficulty, .slug))'
+    jq "${filter}" config.json > config.sorted && mv config.sorted config.json
+
+    exercise_dir="exercises/practice/${slug}"
+fi
 files=$(jq -r --arg dir "${exercise_dir}" '.files | to_entries | map({key: .key, value: (.value | map("'"'"'" + $dir + "/" + . + "'"'"'") | join(" and "))}) | from_entries' "${exercise_dir}/.meta/config.json")
+
+if [[ -n "${concept}" ]]; then
+    cat << CONCEPT_NEXT_STEPS
+
+Your next steps are:
+- Create 'concepts/${concept}/' with its 'about.md', 'introduction.md', 'links.json' and '.meta/config.json'
+  - 'about.md' must contain everything 'introduction.md' does, and more
+  - Neither may refer to an exercise; both are shown outside one
+- Copy the concept's introduction into the exercise by running 'bin/sync-introductions'
+  - Do not hand-edit 'exercises/concept/${slug}/.docs/introduction.md'; CI checks it matches
+- Write the tasks in 'exercises/concept/${slug}/.docs/instructions.md', as '## N. <task>' headings
+- Write 'exercises/concept/${slug}/.docs/hints.md', with a heading per task plus '## General'
+- Write the design notes in 'exercises/concept/${slug}/.meta/design.md'
+- Create the exemplar in $(jq -r '.exemplar' <<< "${files}")
+- Create the stub in $(jq -r '.solution' <<< "${files}")
+  - Unlike a practice exercise, the stub MUST compile. A stub that fails to build produces a
+    top-level error with no per-test results, so the student gets no per-task feedback at all.
+    Return a placeholder value rather than using '@compileError'.
+- Create the tests in $(jq -r '.test' <<< "${files}")
+  - Precede each test with a '// task_id = N' comment naming the task it belongs to
+- Set the exercise's 'icon' in '${exercise_dir}/.meta/config.json' to an icon that no other
+  exercise on this track uses, and that is not named after a canonical practice exercise
+- Within the track's 'config.json':
+  - Add the concept to the 'concepts' array, in teaching order
+  - Add the exercise to 'exercises.concept', with exactly one entry in its 'concepts' array,
+    positioned after every exercise teaching one of its prerequisites
+- Verify with 'bin/run-tests ${slug}', 'bin/prereq-check' and 'bin/sync-introductions --check'
+- Validate CI using 'bin/configlet lint' and 'bin/configlet fmt'
+CONCEPT_NEXT_STEPS
+    exit 0
+fi
 
 cat << NEXT_STEPS
 

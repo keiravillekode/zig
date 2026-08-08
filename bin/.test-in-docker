@@ -10,21 +10,47 @@ for slug in $all_slugs; do
   snake="${slug//-/_}"
   local_exit_code=0
 
+  # Concept Exercises keep their reference solution in '.meta/exemplar.zig',
+  # Practice Exercises in '.meta/example.zig'.
+  if [ -d "/exercises/concept/${slug}" ]; then
+    source_dir="/exercises/concept/${slug}"
+    reference="exemplar.zig"
+  else
+    source_dir="/exercises/practice/${slug}"
+    reference="example.zig"
+  fi
+
   rm -rf /tmp/solution
-  cp -r "/exercises/practice/${slug}" /tmp/solution
+  cp -r "${source_dir}" /tmp/solution
 
   # Integration test: Check if the example solution passes the tests
   # as run by the zig-test-runner similiarly to a student submitting
   # their solution.
-  cp /tmp/solution/.meta/example.zig "/tmp/solution/${snake}.zig"
+  cp "/tmp/solution/.meta/${reference}" "/tmp/solution/${snake}.zig"
   bin/run.sh "${slug}" /tmp/solution /tmp/solution > /dev/null
-  solution_pattern=$(cat /tmp/solution/results.json | jq -r tostring | grep "{\"version\":2,\"status\":\"pass\"")
+  solution_pattern=$(jq -r tostring /tmp/solution/results.json | grep "{\"version\":3,\"status\":\"pass\"")
 
   errors=""
 
   if [ -z "$solution_pattern" ]; then
-    errors="${errors}\n\nSolution is incorrect:\n$(cat /tmp/solution/results.json | jq -r '.message')"
+    errors="${errors}\n\nSolution is incorrect:\n$(jq -r '.message' /tmp/solution/results.json)"
     local_exit_code=1;
+  fi
+
+  # Students never see a Concept Exercise's test file, so the interface makes
+  # 'test_code' mandatory for them. Without it the exercise is unsolvable.
+  if [ -d "/exercises/concept/${slug}" ]; then
+    missing=$(jq '[.tests[] | select(has("test_code") | not)] | length' /tmp/solution/results.json)
+    if [ "$missing" != "0" ]; then
+      errors="${errors}\n\n${missing} test(s) have no 'test_code' field."
+      local_exit_code=1;
+    fi
+
+    untasked=$(jq '[.tests[] | select(has("task_id") | not)] | length' /tmp/solution/results.json)
+    if [ "$untasked" != "0" ]; then
+      errors="${errors}\n\n${untasked} test(s) have no 'task_id'. Add a '// task_id = N' comment above each test."
+      local_exit_code=1;
+    fi
   fi
 
   if [ $local_exit_code = 0 ]; then
